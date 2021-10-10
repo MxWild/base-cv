@@ -8,7 +8,7 @@
     <artifactId>base-cv</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>Base CV</name>
+    <name>Base-CV</name>
     <url>mxwild@gmail.com</url>
 
 
@@ -35,8 +35,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>7</source>
-                    <target>7</target>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
         </plugins>

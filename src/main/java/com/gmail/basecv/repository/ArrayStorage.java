@@ -15,8 +15,10 @@ public class ArrayStorage {
     }
 
     public void save(Resume resume) {
-        storage[size] = resume;
-        size++;
+        if (size == 0 || get(resume.getUuid()) == null) {
+            storage[size] = resume;
+            size++;
+        }
     }
 
     public void update(Resume resume) {
@@ -40,9 +42,8 @@ public class ArrayStorage {
     public void delete(String uuid) {
         for (int i = 0; i < size; i++) {
             if (uuid.equalsIgnoreCase(storage[i].getUuid())) {
-                storage[i] = null;
                 storage[i] = storage[size - 1];
-                storage[size] = null;
+                storage[size - 1] = null;
                 size--;
             }
         }
