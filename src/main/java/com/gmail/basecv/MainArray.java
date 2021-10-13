@@ -2,6 +2,7 @@ package com.gmail.basecv;
 
 import com.gmail.basecv.model.Resume;
 import com.gmail.basecv.repository.ArrayStorage;
+import com.gmail.basecv.repository.Storage;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,7 +10,7 @@ import java.io.InputStreamReader;
 
 public class MainArray {
 
-    private static final ArrayStorage ARRAY_STORAGE = new ArrayStorage();
+    private static final Storage ARRAY_STORAGE = new ArrayStorage();
 
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
