@@ -4,31 +4,19 @@ import com.gmail.basecv.model.Resume;
 
 import java.util.Arrays;
 
-public class ArrayStorage implements Storage {
+import static com.gmail.basecv.common.Constants.RESUME_WITH_UUID;
+import static com.gmail.basecv.common.Constants.STORAGE_LIMIT;
 
-    private static final String RESUME_WITH_UUID = "Resume with uuid := ";
-    private static final int STORAGE_LIMIT = 10000;
-
-    private final Resume[] storage = new Resume[STORAGE_LIMIT];
-    private int size = 0;
+public class ArrayStorage extends AbstractArrayStorage {
 
     public void save(Resume resume) {
         if (getIndex(resume.getUuid()) != -1) {
             printMessage(RESUME_WITH_UUID + resume.getUuid() + " already exist");
-        } else if (size == storage.length) {
+        } else if (size == STORAGE_LIMIT) {
             printMessage("Storage overflow");
         } else {
             storage[size++] = resume;
         }
-    }
-
-    public Resume get(String uuid) {
-        int index = getIndex(uuid);
-        if (index == -1) {
-            printMessage(RESUME_WITH_UUID + uuid + " not found");
-            return null;
-        }
-        return storage[index];
     }
 
     public Resume[] getAll() {
@@ -60,11 +48,7 @@ public class ArrayStorage implements Storage {
         size = 0;
     }
 
-    public int size() {
-        return size;
-    }
-
-    private int getIndex(String uuid) {
+    protected int getIndex(String uuid) {
         for (int i = 0; i < size; i++) {
             if (uuid.equals(storage[i].getUuid())) {
                 return i;
@@ -73,7 +57,4 @@ public class ArrayStorage implements Storage {
         return -1;
     }
 
-    private void printMessage(String message) {
-        System.out.println(message);
-    }
 }

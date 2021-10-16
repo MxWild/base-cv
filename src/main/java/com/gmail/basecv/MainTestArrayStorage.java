@@ -2,9 +2,10 @@ package com.gmail.basecv;
 
 import com.gmail.basecv.model.Resume;
 import com.gmail.basecv.repository.ArrayStorage;
+import com.gmail.basecv.repository.Storage;
 
 public class MainTestArrayStorage {
-    private static final ArrayStorage ARRAY_STORAGE = new ArrayStorage();
+    private static final Storage ARRAY_STORAGE = new ArrayStorage();
 
     public static void main(String[] args) {
 
