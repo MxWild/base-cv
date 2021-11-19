@@ -2,20 +2,21 @@ package com.gmail.basecv;
 
 import com.gmail.basecv.model.Resume;
 import com.gmail.basecv.repository.ArrayStorage;
+import com.gmail.basecv.repository.SortedArrayStorage;
 import com.gmail.basecv.repository.Storage;
 
 public class MainTestArrayStorage {
-    private static final Storage ARRAY_STORAGE = new ArrayStorage();
+    private static final Storage ARRAY_STORAGE = new SortedArrayStorage();
 
     public static void main(String[] args) {
 
-        Resume resume1 = new Resume();
+        var resume1 = new Resume();
         resume1.setUuid("uuid1");
 
-        Resume resume2 = new Resume();
+        var resume2 = new Resume();
         resume2.setUuid("uuid2");
 
-        Resume resume3 = new Resume();
+        var resume3 = new Resume();
         resume3.setUuid("uuid3");
 
         ARRAY_STORAGE.save(resume1);
@@ -39,7 +40,7 @@ public class MainTestArrayStorage {
 
     private static void printAll() {
         System.out.println("\nGet All");
-        for (Resume resume: ARRAY_STORAGE.getAll()) {
+        for (var resume: ARRAY_STORAGE.getAll()) {
             System.out.println(resume);
         }
     }
