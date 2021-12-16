@@ -1,10 +1,12 @@
 package com.gmail.basecv.repository;
 
+import com.gmail.basecv.exception.ExistStorageException;
+import com.gmail.basecv.exception.NotExistStorageException;
+import com.gmail.basecv.exception.StorageException;
 import com.gmail.basecv.model.Resume;
 
 import java.util.Arrays;
 
-import static com.gmail.basecv.common.Constant.RESUME_WITH_UUID;
 import static com.gmail.basecv.common.Constant.STORAGE_LIMIT;
 
 public abstract class AbstractArrayStorage implements Storage {
@@ -15,9 +17,9 @@ public abstract class AbstractArrayStorage implements Storage {
     public void save(Resume resume) {
         int index = getIndex(resume.getUuid());
         if (index >= 0) {
-            printMessage(RESUME_WITH_UUID + resume.getUuid() + " already exist");
+            throw new ExistStorageException(resume.getUuid());
         } else if (size == STORAGE_LIMIT) {
-            printMessage("Storage overflow");
+            throw new StorageException("Storage overflow", resume.getUuid());
         } else {
             insertElement(resume, index);
             size++;
@@ -27,8 +29,7 @@ public abstract class AbstractArrayStorage implements Storage {
     public Resume get(String uuid) {
         int index = getIndex(uuid);
         if (index < 0) {
-            printMessage(RESUME_WITH_UUID + uuid + " not found");
-            return null;
+            throw new NotExistStorageException(uuid);
         }
         return storage[index];
     }
@@ -40,7 +41,7 @@ public abstract class AbstractArrayStorage implements Storage {
     public void update(Resume resume) {
         int index = getIndex(resume.getUuid());
         if (index < 0) {
-            printMessage(RESUME_WITH_UUID + resume.getUuid() + " not exist");
+            throw new ExistStorageException(resume.getUuid());
         } else {
             storage[index] = resume;
         }
@@ -49,7 +50,7 @@ public abstract class AbstractArrayStorage implements Storage {
     public void delete(String uuid) {
         int index = getIndex(uuid);
         if (index < 0) {
-            printMessage("ERROR, resume not found");
+            throw new NotExistStorageException(uuid);
         } else {
             deleteElement(index);
             storage[size - 1] = null;
@@ -71,9 +72,5 @@ public abstract class AbstractArrayStorage implements Storage {
     protected abstract void deleteElement(int index);
 
     protected abstract int getIndex(String uuid);
-
-    protected void printMessage(String message) {
-        System.out.println(message);
-    }
 
 }
