@@ -4,6 +4,7 @@ import com.gmail.basecv.exception.ExistStorageException;
 import com.gmail.basecv.exception.NotExistStorageException;
 import com.gmail.basecv.exception.StorageException;
 import com.gmail.basecv.model.Resume;
+import com.gmail.basecv.repository.base.Storage;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,16 +18,16 @@ public abstract class AbstractArrayStorageTest {
     private final Storage storage;
 
     private static final String UUID_1 = "uuid1";
-    public static final Resume RESUME_1 = new Resume(UUID_1);
+    private static final Resume RESUME_1 = new Resume(UUID_1);
 
     private static final String UUID_2 = "uuid2";
-    public static final Resume RESUME_2 = new Resume(UUID_2);
+    private static final Resume RESUME_2 = new Resume(UUID_2);
 
     private static final String UUID_3 = "uuid3";
-    public static final Resume RESUME_3 = new Resume(UUID_3);
+    private static final Resume RESUME_3 = new Resume(UUID_3);
 
     private static final String TMP_UUID = "tmp_uuid";
-    public static final Resume RESUME_TMP = new Resume(TMP_UUID);
+    private static final Resume RESUME_TMP = new Resume(TMP_UUID);
 
     public AbstractArrayStorageTest(Storage storage) {
         this.storage = storage;
@@ -97,7 +98,7 @@ public abstract class AbstractArrayStorageTest {
         storage.get("dummy");
     }
 
-    @Test(expected = ExistStorageException.class)
+    @Test(expected = NotExistStorageException.class)
     public void updateNotExist() {
         storage.update(RESUME_TMP);
     }

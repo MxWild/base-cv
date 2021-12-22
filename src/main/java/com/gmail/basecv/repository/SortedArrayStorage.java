@@ -1,6 +1,7 @@
 package com.gmail.basecv.repository;
 
 import com.gmail.basecv.model.Resume;
+import com.gmail.basecv.repository.base.AbstractArrayStorage;
 
 import java.util.Arrays;
 
@@ -22,7 +23,7 @@ public class SortedArrayStorage extends AbstractArrayStorage {
     }
 
     @Override
-    protected int getIndex(String uuid) {
+    protected Integer getSearchKey(String uuid) {
         Resume searchKey = new Resume(uuid);
         return Arrays.binarySearch(storage, 0, size, searchKey);
     }

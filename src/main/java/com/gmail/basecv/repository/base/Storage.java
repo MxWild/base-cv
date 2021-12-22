@@ -1,4 +1,4 @@
-package com.gmail.basecv.repository;
+package com.gmail.basecv.repository.base;
 
 import com.gmail.basecv.model.Resume;
 
