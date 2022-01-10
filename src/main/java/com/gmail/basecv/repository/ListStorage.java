@@ -1,7 +1,7 @@
 package com.gmail.basecv.repository;
 
 import com.gmail.basecv.model.Resume;
-import com.gmail.basecv.repository.base.AbstractStorage;
+import com.gmail.basecv.repository.general.AbstractStorage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +33,7 @@ public class ListStorage extends AbstractStorage {
     @Override
     protected Integer getSearchKey(String uuid) {
         for (int i = 0; i < storage.size(); i++) {
-            if (storage.get(i).getUuid().equals(uuid)) {
+            if (uuid.equals(storage.get(i).getUuid())) {
                 return i;
             }
         }

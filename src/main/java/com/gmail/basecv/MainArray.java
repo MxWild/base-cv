@@ -2,7 +2,7 @@ package com.gmail.basecv;
 
 import com.gmail.basecv.model.Resume;
 import com.gmail.basecv.repository.ArrayStorage;
-import com.gmail.basecv.repository.base.Storage;
+import com.gmail.basecv.repository.general.Storage;
 
 import java.io.BufferedReader;
 import java.io.IOException;

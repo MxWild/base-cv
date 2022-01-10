@@ -2,7 +2,7 @@ package com.gmail.basecv.repository;
 
 import com.gmail.basecv.exception.StorageException;
 import com.gmail.basecv.model.Resume;
-import com.gmail.basecv.repository.base.Storage;
+import com.gmail.basecv.repository.general.Storage;
 import org.junit.Test;
 
 import static com.gmail.basecv.common.Constant.STORAGE_LIMIT;

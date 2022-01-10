@@ -1,7 +1,7 @@
 package com.gmail.basecv.repository;
 
 import com.gmail.basecv.model.Resume;
-import com.gmail.basecv.repository.base.AbstractArrayStorage;
+import com.gmail.basecv.repository.general.AbstractArrayStorage;
 
 import java.util.Arrays;
 

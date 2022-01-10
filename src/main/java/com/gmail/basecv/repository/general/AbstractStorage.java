@@ -1,4 +1,4 @@
-package com.gmail.basecv.repository.base;
+package com.gmail.basecv.repository.general;
 
 import com.gmail.basecv.exception.ExistStorageException;
 import com.gmail.basecv.exception.NotExistStorageException;
