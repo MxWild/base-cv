@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.UUID;
 
 @Data
-public class Resume implements Comparable<Resume> {
+public class Resume {
 
     private final String uuid;
 
@@ -17,8 +17,4 @@ public class Resume implements Comparable<Resume> {
         this.uuid = uuid;
     }
 
-    @Override
-    public int compareTo(Resume o) {
-        return uuid.compareTo(o.getUuid());
-    }
 }
