@@ -4,6 +4,7 @@ import com.gmail.basecv.exception.StorageException;
 import com.gmail.basecv.model.Resume;
 
 import java.util.Arrays;
+import java.util.List;
 
 import static com.gmail.basecv.common.Constant.STORAGE_LIMIT;
 
@@ -42,8 +43,8 @@ public abstract class AbstractArrayStorage extends AbstractStorage {
         size--;
     }
 
-    public Resume[] getAll() {
-        return Arrays.copyOfRange(storage, 0, size);
+    public List<Resume> getAll() {
+        return List.of(Arrays.copyOfRange(storage, 0, size));
     }
 
     public void clear() {
