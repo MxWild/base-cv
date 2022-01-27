@@ -1,3 +1,4 @@
 /.idea/
 /target/
 /base-cv.iml
+/jacoco-unit.exec
