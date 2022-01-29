@@ -17,7 +17,7 @@ public class MainArray {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         Resume resume;
         while (true) {
-            System.out.println("Введите одну из команд - (list | size | save fullName | delete uuid | get uuid fullName | clear | exit): ");
+            System.out.println("Введите одну из команд - (list | size | save fullName | delete uuid | get uuid | update uuid fullName | clear | exit): ");
             String[] params = reader.readLine().trim().toLowerCase().split(" ");
 
             if (params.length < 1 || params.length > 3) {
@@ -68,7 +68,7 @@ public class MainArray {
     }
 
     private static void printAll() {
-        List<Resume> allResume = ARRAY_STORAGE.getAll();
+        List<Resume> allResume = ARRAY_STORAGE.getAllSorted();
         System.out.println("---------------------------------");
         if (allResume.isEmpty()) {
             System.out.println("Empty");
